@@ -1,9 +1,12 @@
-package airbrake;
+package airbrake.log4j;
 
 import static org.hamcrest.Matchers.*;
 import static org.junit.Assert.*;
 
 import org.junit.*;
+
+import airbrake.AirbrakeNotice;
+import airbrake.AirbrakeNoticeBuilder;
 
 public class AirbrakeNoticeBuilderTest {
 

@@ -2,11 +2,14 @@
 // Copyright (c) 2009 Luca Marrocco.
 // Licensed under the Apache License, Version 2.0 (the "License")
 
-package airbrake;
+package airbrake.log4j;
 
 import java.util.*;
 
 import org.apache.log4j.*;
+
+import airbrake.AirbrakeNoticeBuilder;
+import airbrake.Backtrace;
 
 public class AirbrakeNoticeBuilderUsingFilteredSystemProperties extends AirbrakeNoticeBuilder {
 

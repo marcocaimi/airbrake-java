@@ -26,7 +26,7 @@ public class Backtrace implements Iterable<String> {
 
 	private final List<String> filteredBacktrace = new LinkedList<String>();
 
-	protected Backtrace() {
+	public Backtrace() {
 	}
 
 	public Backtrace(final List<String> backtrace) {

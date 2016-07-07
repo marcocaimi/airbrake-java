@@ -17,6 +17,8 @@ import org.apache.commons.logging.*;
 import org.hamcrest.*;
 import org.junit.*;
 
+import airbrake.log4j.AirbrakeNoticeBuilderUsingFilteredSystemProperties;
+
 public class AirbrakeNotifierTest {
 
 	protected static final Backtrace BACKTRACE = new Backtrace(asList("backtrace is empty"));;
@@ -28,7 +30,7 @@ public class AirbrakeNotifierTest {
 
 	private final Map<String, Object> EC2 = new HashMap<String, Object>();
 
-	private AirbrakeAsynchronousNotifier notifier;
+	private AirbrakeNotifier notifier;
 
 	private <T> Matcher<T> internalServerError() {
 		return new BaseMatcher<T>() {
@@ -43,7 +45,7 @@ public class AirbrakeNotifierTest {
 	}
 
 	private int notifing(final String string) {
-		return new AirbrakeAsynchronousNotifier().notify(new AirbrakeNoticeBuilder(API_KEY, ERROR_MESSAGE) {
+		return new AirbrakeNotifier().notify(new AirbrakeNoticeBuilder(API_KEY, ERROR_MESSAGE) {
 			{
 				backtrace(new Backtrace(asList(string)));
 			}
@@ -57,7 +59,7 @@ public class AirbrakeNotifierTest {
 		EC2.put("EC2_PRIVATE_KEY", "EC2_PRIVATE_KEY");
 		EC2.put("AWS_ACCESS", "AWS_ACCESS");
 		EC2.put("EC2_CERT", "EC2_CERT");
-		notifier = new AirbrakeAsynchronousNotifier();
+		notifier = new AirbrakeNotifier();
 	}
 
 	@Test

@@ -132,7 +132,7 @@ public class AirbrakeNoticeBuilder {
 		}
 	}
 
-	protected boolean errorClassIs(String possibleErrorClass) {
+	public boolean errorClassIs(String possibleErrorClass) {
 		return errorClass.equals(possibleErrorClass);
 	}
 

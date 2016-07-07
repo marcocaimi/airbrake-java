@@ -2,14 +2,18 @@
 // Copyright (c) 2009 Luca Marrocco.
 // Licensed under the Apache License, Version 2.0 (the "License")
 
-package airbrake;
+package airbrake.log4j;
 
 import org.apache.log4j.*;
 import org.apache.log4j.spi.*;
 
+import airbrake.AirbrakeNotifier;
+import airbrake.AirbrakeNotice;
+import airbrake.Backtrace;
+
 public class AirbrakeAppender extends AppenderSkeleton {
 
-	private final AirbrakeAsynchronousNotifier airbrakeNotifier = new AirbrakeAsynchronousNotifier();
+	private final AirbrakeNotifier airbrakeNotifier = new AirbrakeNotifier();
 
 	private String apiKey;
 

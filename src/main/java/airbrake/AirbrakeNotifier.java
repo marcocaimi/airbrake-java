@@ -9,7 +9,7 @@ import java.net.*;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-public class AirbrakeAsynchronousNotifier {
+public class AirbrakeNotifier {
 	
 	ExecutorService executor = Executors.newSingleThreadExecutor();
 
@@ -29,11 +29,11 @@ public class AirbrakeAsynchronousNotifier {
 
 	private String url;
 
-	public AirbrakeAsynchronousNotifier() {
+	public AirbrakeNotifier() {
 		setUrl("http://api.airbrake.io/notifier_api/v2/notices");
 	}
 
-	public AirbrakeAsynchronousNotifier(String url) {
+	public AirbrakeNotifier(String url) {
 		setUrl(url);
 	}
 

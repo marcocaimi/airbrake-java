@@ -2,7 +2,7 @@
 // Copyright (c) 2009 Luca Marrocco.
 // Licensed under the Apache License, Version 2.0 (the "License")
 
-package airbrake;
+package airbrake.log4j;
 
 import static airbrake.ApiKeys.*;
 import static airbrake.Exceptions.*;
@@ -10,6 +10,13 @@ import static org.hamcrest.Matchers.*;
 import static org.junit.Assert.*;
 
 import org.junit.*;
+
+import airbrake.AirbrakeNotice;
+import airbrake.Backtrace;
+import airbrake.QuietRubyBacktrace;
+import airbrake.RubyBacktrace;
+import airbrake.SwitchBacktrace;
+import airbrake.log4j.AirbrakeAppender;
 
 public class AirbrakeAppenderTest {
 
