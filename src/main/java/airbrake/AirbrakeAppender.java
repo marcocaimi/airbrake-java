@@ -9,7 +9,7 @@ import org.apache.log4j.spi.*;
 
 public class AirbrakeAppender extends AppenderSkeleton {
 
-	private final AirbrakeNotifier airbrakeNotifier = new AirbrakeNotifier();
+	private final AirbrakeAsynchronousNotifier airbrakeNotifier = new AirbrakeAsynchronousNotifier();
 
 	private String apiKey;
 

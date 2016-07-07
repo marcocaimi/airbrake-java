@@ -3,13 +3,15 @@ Airbrake Java
 
 <img src="http://f.cl.ly/items/0u0S1z2l3Q05371C1C0I/java%2009.19.32.jpg" width=800px>
 
-This is the notifier jar for integrating apps with [Airbrake](http://airbrake.io) with Java Applications. Sign up for a [Free](https://airbrake.io/account/new/Free) or [Paid](https://airbrake.io/account/new?source=github) account.
+This is a notifier jar for integrating apps with [Airbrake](http://airbrake.io) with Java Applications. Sign up for a [Free](https://airbrake.io/account/new/Free) or [Paid](https://airbrake.io/account/new?source=github) account.
 
 When an uncaught exception occurs, Airbrake will POST the relevant data
 to the Airbrake server specified in your environment.
 
 The easy way to use airbrake is configuriong log4j appender. Otherwise if you don't 
 use log4j you can use airbrake notifier directly with a very simple API.
+
+This fork support aynchornous non blocking notifications to airbrake.io
 
 Setting up with Maven
 ---------------------
@@ -18,8 +20,8 @@ Setting up with Maven
   		<dependencies>
     		<dependency>
       		<groupId>io.airbrake</groupId>
-      		<artifactId>airbrake-java</artifactId>
-      		<version>2.2.8</version>
+      		<artifactId>airbrake-java-asynch</artifactId>
+      		<version>2.2.9</version>
     		</dependency>
   		</dependencies>
 	</project>

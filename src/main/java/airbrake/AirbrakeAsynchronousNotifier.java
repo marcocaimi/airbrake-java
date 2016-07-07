@@ -6,8 +6,12 @@ package airbrake;
 
 import java.io.*;
 import java.net.*;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
-public class AirbrakeNotifier {
+public class AirbrakeAsynchronousNotifier {
+	
+	ExecutorService executor = Executors.newSingleThreadExecutor();
 
 	public static String slurp(InputStream stream) {
 		try {
@@ -25,11 +29,11 @@ public class AirbrakeNotifier {
 
 	private String url;
 
-	public AirbrakeNotifier() {
+	public AirbrakeAsynchronousNotifier() {
 		setUrl("http://api.airbrake.io/notifier_api/v2/notices");
 	}
 
-	public AirbrakeNotifier(String url) {
+	public AirbrakeAsynchronousNotifier(String url) {
 		setUrl(url);
 	}
 
@@ -47,15 +51,22 @@ public class AirbrakeNotifier {
 	}
 
 	public int notify(final AirbrakeNotice notice) {
-		try {
-			final HttpURLConnection airbrakeConnection = createConnection();
-			addingPropertiesTo(airbrakeConnection);
-			String noticeXml = new NoticeXml(notice).toString();
-			return send(noticeXml, airbrakeConnection);
-		} catch (final Exception e) {
-			printStacktrace(notice, e);
-		}
-		return 0;
+		executor.submit(new Runnable() {
+			
+			@Override
+			public void run() {
+				try {
+					final HttpURLConnection airbrakeConnection = createConnection();
+					addingPropertiesTo(airbrakeConnection);
+					String noticeXml = new NoticeXml(notice).toString();
+					send(noticeXml, airbrakeConnection);
+				} catch (final Exception e) {
+					printStacktrace(notice, e);
+				}
+			}
+		});
+
+		return 200;
 	}
 
 	private void printStacktrace(final AirbrakeNotice notice, final Exception e) {

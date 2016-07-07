@@ -7,16 +7,16 @@
     <version>7</version>
   </parent>
   <groupId>io.airbrake</groupId>
-  <artifactId>airbrake-java</artifactId>
+  <artifactId>airbrake-java-asynch</artifactId>
   <packaging>jar</packaging>
   <version>2.2.9-SNAPSHOT</version>
-  <name>Airbrake Notifier Java</name>
-  <description>This is the official library to notify exception to Airbrake.io</description>
+  <name>Airbrake Asynchronous Notifier Java</name>
+  <description>Fork of Airbrake.io with asynch non blocking notifier</description>
   <url>https://airbrake.io</url>
   <scm>
-    <url>scm:git:git@github.com:airbrake/airbrake-java.git</url>
-    <connection>scm:git:git@github.com:airbrake/airbrake-java.git</connection>
-    <developerConnection>scm:git:git@github.com:airbrake/airbrake-java.git</developerConnection>
+    <url>scm:git:git@github.com:marcocaimi/airbrake-java.git</url>
+    <connection>scm:git:git@github.com:marcocaimi/airbrake-java.git</connection>
+    <developerConnection>scm:git:git@github.com:marcocaimi/airbrake-java.git</developerConnection>
   </scm>
   <licenses>
     <license>
@@ -27,10 +27,10 @@
   </licenses>
   <developers>
     <developer>
-      <id>lucamarrocco</id>
-      <name>Luca Marrocco</name>
-      <email>luca.marrocco@gmail.com</email>
-      <url>https://github.com/lucamarrocco</url>
+      <id>marcocaimi</id>
+      <name>Marco Caimi</name>
+      <email>marco.caimi@gmail.com</email>
+      <url>https://github.com/marcocaimi</url>
     </developer>
   </developers>
   <dependencies>
