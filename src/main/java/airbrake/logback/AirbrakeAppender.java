@@ -49,10 +49,12 @@ public class AirbrakeAppender extends AppenderBase<ILoggingEvent> {
     private Backtrace backtraceBuilder = new Backtrace(new LinkedList<String>());
 
     public AirbrakeAppender() {
+    	System.out.println("Starting airbrake");
         airbrakeNotifier = new AirbrakeNotifier();
     }
 
     protected AirbrakeAppender(AirbrakeNotifier airbrakeNotifier) {
+    	System.out.println("Starting airbrake");
         this.airbrakeNotifier = airbrakeNotifier;
     }
 
